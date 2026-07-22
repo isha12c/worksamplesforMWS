@@ -371,6 +371,34 @@ a { color: inherit; }
   color: var(--paper-dim);
 }
 
+/* ---------- Meta section ---------- */
+.meta {
+  background: var(--paper-soft);
+  border-top: 1px solid var(--hairline-light);
+  padding: 64px 32px;
+}
+
+.meta__inner {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.meta__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.6rem;
+  margin: 0 0 16px;
+  color: var(--ink);
+}
+
+.meta__desc {
+  font-size: 0.98rem;
+  color: var(--ink-text);
+  opacity: 0.8;
+  margin: 0;
+}
+
 /* ---------- Footer ---------- */
 .footer {
   background: var(--ink);
