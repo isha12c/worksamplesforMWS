@@ -41,21 +41,22 @@ a { color: inherit; }
 .topnav {
   position: fixed;
   top: 0; left: 0; right: 0;
-  z-index: 20;
+  z-index: 50;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 32px;
-  mix-blend-mode: difference;
+  padding: 18px 32px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--hairline-light);
 }
 
 .topnav__mark {
   font-family: var(--font-mono);
   font-size: 14px;
   letter-spacing: 0.08em;
-  color: #fff;
+  color: var(--ink);
   text-decoration: none;
-  border: 1px solid rgba(255,255,255,0.4);
+  border: 1px solid var(--hairline-light);
   border-radius: 50%;
   width: 32px; height: 32px;
   display: flex; align-items: center; justify-content: center;
@@ -71,9 +72,9 @@ a { color: inherit; }
 }
 
 .topnav__links a {
-  color: #fff;
+  color: var(--ink);
   text-decoration: none;
-  opacity: 0.75;
+  opacity: 0.65;
   transition: opacity 0.2s ease;
 }
 .topnav__links a:hover { opacity: 1; }
