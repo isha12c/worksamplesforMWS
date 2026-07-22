@@ -186,11 +186,21 @@ a { color: inherit; }
 }
 
 /* ---------- Case sections (shared) ---------- */
-.case {
-  padding: 110px 32px;
+.cases {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
 }
 
-.case__inner { max-width: 760px; margin: 0 auto; }
+.case {
+  padding: 90px 40px;
+}
+
+.case__inner { max-width: 480px; margin: 0 auto; }
+
+@media (max-width: 860px) {
+  .cases { grid-template-columns: 1fr; }
+}
 
 .case__title {
   font-family: var(--font-display);
@@ -310,7 +320,7 @@ a { color: inherit; }
 
 .metrics {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   gap: 24px;
   margin: 56px 0 52px;
   padding: 28px 0;
@@ -368,9 +378,7 @@ a { color: inherit; }
   border-top: 1px solid var(--hairline);
   padding: 32px;
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
+  justify-content: center;
   font-family: var(--font-mono);
   font-size: 12px;
 }
