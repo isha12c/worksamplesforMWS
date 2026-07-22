@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Isha Chowdhary — Work Samples</title>
+<meta name="description" content="Two products I built, and what broke along the way — darkroom, a film photography gallery, and PrivacyCheck, an AI-powered privacy policy scorer." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="#top" class="topnav__mark">IC</a>
+  <div class="topnav__links">
+    <a href="#darkroom">darkroom</a>
+    <a href="#privacycheck">PrivacyCheck</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero__inner">
+    <p class="eyebrow">Work samples</p>
+    <h1 class="hero__title">
+      Two products I built —<br>
+      <em>and what broke along the way.</em>
+    </h1>
+    <p class="hero__sub">
+      I'm Isha Chowdhary, a product analyst and builder. These are two live projects,
+      shown with the real problems I hit while shipping them, not just the polished result.
+    </p>
+    <div class="hero__jump">
+      <a href="#darkroom" class="jump-card jump-card--film">
+        <span class="jump-card__label">01</span>
+        <span class="jump-card__title">darkroom</span>
+        <span class="jump-card__tag">Film photography gallery</span>
+      </a>
+      <a href="#privacycheck" class="jump-card jump-card--tech">
+        <span class="jump-card__label">02</span>
+        <span class="jump-card__title">PrivacyCheck</span>
+        <span class="jump-card__tag">AI privacy policy scorer</span>
+      </a>
+    </div>
+  </div>
+  <div class="hero__counter" aria-hidden="true">
+    <span class="hero__counter-frame" id="frameCounter">000</span>
+    <span class="hero__counter-label">frame</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- DARKROOM -->
+  <section class="case case--film" id="darkroom">
+    <div class="case__inner">
+      <p class="roll-strip">roll&nbsp;7_17_26&nbsp;·&nbsp;darkroom&nbsp;·&nbsp;personal project</p>
+      <h2 class="case__title">darkroom</h2>
+      <p class="case__desc">
+        A digital gallery for browsing 35mm film photography, roll by roll. Pick a camera,
+        develop the roll, and step through frames the way you'd sort through a contact sheet —
+        built to feel closer to handling physical film than scrolling a camera-roll app.
+      </p>
+      <a class="case__link" href="https://isha12c.github.io/photos/" target="_blank" rel="noopener">
+        View the live gallery ↗
+      </a>
+
+      <div class="log">
+        <p class="log__heading">Build issues — frame log</p>
+
+        <div class="log__entry">
+          <span class="log__frame">FRAME&nbsp;01</span>
+          <div class="log__body">
+            <h3>Rotation</h3>
+            <p>Scanned film carries far less embedded metadata than a phone photo — no
+              reliable orientation flag to read. Scans came in rotated inconsistently, so I
+              wrote scripts to batch-correct and normalize orientation before anything could
+              go into the gallery.</p>
+          </div>
+        </div>
+
+        <div class="log__entry">
+          <span class="log__frame">FRAME&nbsp;02</span>
+          <div class="log__body">
+            <h3>File legibility</h3>
+            <p>Using Claude to help process the scans directly, file naming and format
+              inconsistencies from scanning meant it couldn't reliably read every file. I ended
+              up building workarounds to standardize files on ingestion instead of fixing it
+              per-file.</p>
+          </div>
+        </div>
+
+        <div class="log__entry log__entry--future">
+          <span class="log__frame">FRAME&nbsp;03</span>
+          <div class="log__body">
+            <h3>What's next <span class="tag-inprogress">in progress</span></h3>
+            <p>Right now, getting a roll onto the site is a manual process. I'm building a
+              companion app and backend so I can upload directly from my phone, skipping the
+              scan-and-rotate workflow entirely.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVACYCHECK -->
+  <section class="case case--tech" id="privacycheck">
+    <div class="case__inner">
+      <p class="case-strip">AI&nbsp;·&nbsp;Legal-tech&nbsp;·&nbsp;UT Austin Center for Identity</p>
+      <h2 class="case__title">PrivacyCheck</h2>
+      <p class="case__desc">
+        A Chrome extension that scores privacy policies so you don't have to read them —
+        weighing categories like cookie tracking, biometric data, and third-party sharing
+        against what actually matters to you.
+      </p>
+      <a class="case__link" href="https://isha12c.github.io/PrivacyCheckShowcase/" target="_blank" rel="noopener">
+        View the live demo ↗
+      </a>
+
+      <div class="metrics">
+        <div class="metric">
+          <span class="metric__value">60% <span class="metric__arrow">→</span> 70.3%</span>
+          <span class="metric__label">Accuracy vs. human-scored policies<br>LightGBM → LLM-based model</span>
+        </div>
+        <div class="metric">
+          <span class="metric__value">+10%</span>
+          <span class="metric__label">Improvement from the model rebuild</span>
+        </div>
+        <div class="metric">
+          <span class="metric__value">10 / 2</span>
+          <span class="metric__label">Scoring categories / readability formulas</span>
+        </div>
+      </div>
+
+      <div class="flags">
+        <p class="log__heading">Build issues</p>
+
+        <div class="flag">
+          <h3>Infrastructure shift</h3>
+          <p>An AWS change broke deployment mid-flight — the app started throwing read
+            errors and returning inaccurate, sometimes negative, scores until I traced it back.</p>
+        </div>
+        <div class="flag">
+          <h3>Silent failure handling</h3>
+          <p>Longer policy pages caused the scoring Lambda to time out. Instead of failing
+            cleanly, it returned negative scores — I had to rework the function to fail
+            visibly rather than return bad data.</p>
+        </div>
+        <div class="flag">
+          <h3>Dependency debt</h3>
+          <p>Audited and updated outdated packages across the codebase to close security
+            gaps and reduce version-compatibility risk.</p>
+        </div>
+        <div class="flag">
+          <h3>Vendor lock-in</h3>
+          <p>After the AWS incident, I tested Google Cloud as a working backup so a single
+            provider outage can't take the whole tool down again.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Isha Chowdhary — built for review, not for scale.</p>
+  <a href="#top">Back to top ↑</a>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
