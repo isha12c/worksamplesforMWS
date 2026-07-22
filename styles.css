@@ -1,16 +1,16 @@
 :root {
-  --ink: #000037;
-  --ink-soft: #07093f;
-  --paper: #f7f6f2;
-  --paper-soft: #eeece4;
-  --paper-dim: #9aa0ba;
-  --safelight: #a6832e;
-  --safelight-soft: #c7a253;
-  --slate: #a6832e;
-  --slate-soft: #c7a253;
-  --hairline: #2a2d55;
-  --hairline-light: #ddd9cd;
-  --ink-text: #1c1f33;
+  --ink: #123c69;
+  --ink-soft: #184a7c;
+  --paper: #ffffff;
+  --paper-soft: #eef3f8;
+  --paper-dim: #a9c1d9;
+  --safelight: #2f7ec4;
+  --safelight-soft: #4d97dc;
+  --slate: #2f7ec4;
+  --slate-soft: #4d97dc;
+  --hairline: #1f5182;
+  --hairline-light: #d7e2ec;
+  --ink-text: #142438;
 
   --font-display: "Fraunces", serif;
   --font-body: "IBM Plex Sans", sans-serif;
